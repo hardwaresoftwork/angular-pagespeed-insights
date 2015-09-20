@@ -87,13 +87,14 @@ function($scope, $routeParams, NGPagespeedInsights, $location, project, $timeout
 
   }
 
+  /*
 
   $scope.url = 'http://androidpit.de';
 
   $scope.test = function() {
 
     url = $scope.user.name;
-    console.log(url);
+  //  console.log(url);
 
     NGPagespeedInsights.getUser(url, '')
           .then(
@@ -104,6 +105,8 @@ function($scope, $routeParams, NGPagespeedInsights, $location, project, $timeout
 
 
     };
+
+    */
 }]);
 
 Controllers.controller('CompetitorCtrl', ['$scope', '$routeParams', 'NGPagespeedInsights', '$location', 'project',
@@ -209,7 +212,6 @@ function($scope, $routeParams, NGPagespeedInsights, $location, project) {
       function( friends ) {
 
         $scope.temp = friends;
-
         $scope.results.push({
           pageinsights : $scope.temp
         });
@@ -217,20 +219,6 @@ function($scope, $routeParams, NGPagespeedInsights, $location, project) {
     );
   }
 
-$scope.test = function() {
-
-  url = $scope.user.name;
-  console.log(url);
-
-  NGPagespeedInsights.getUser(url, '')
-  .then(
-    function( friends ) {
-      $scope.uservalue = friends;
-    }
-  );
-
-
-};
 }]);
 
 })();
