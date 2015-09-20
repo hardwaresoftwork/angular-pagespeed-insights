@@ -12,8 +12,8 @@ Controllers.value('project', {
   title: 'Angular-Pagespeed-Insights',
 });
 
-Controllers.controller('HomeCtrl', ['$scope', '$routeParams', 'SourSound', '$location', 'project',
-function($scope, $routeParams, SourSound, $location, project) {
+Controllers.controller('HomeCtrl', ['$scope', '$routeParams', 'NGPagespeedInsights', '$location', 'project',
+function($scope, $routeParams, NGPagespeedInsights, $location, project) {
 
   $scope.project = { title: project.title };
 
@@ -30,8 +30,8 @@ function($scope, $routeParams, SourSound, $location, project) {
 }
 ]);
 
-Controllers.controller('SitesCtrl', ['$scope', '$routeParams', 'SourSound', '$location', 'project', '$timeout',
-function($scope, $routeParams, SourSound, $location, project, $timeout) {
+Controllers.controller('SitesCtrl', ['$scope', '$routeParams', 'NGPagespeedInsights', '$location', 'project', '$timeout',
+function($scope, $routeParams, NGPagespeedInsights, $location, project, $timeout) {
 
   $scope.project = { title: project.title };
 
@@ -75,7 +75,7 @@ function($scope, $routeParams, SourSound, $location, project, $timeout) {
   var sitelength = $scope.sites.length;
 
   for (var i = 0; i < sitelength; i++) {
-  SourSound.getSiteInsights($scope.sites[i].site, '')
+  NGPagespeedInsights.getSiteInsights($scope.sites[i].site, '')
   .then(
     function( friends ) {
       $scope.temp = friends;
@@ -89,24 +89,13 @@ function($scope, $routeParams, SourSound, $location, project, $timeout) {
 
 
   $scope.url = 'http://androidpit.de';
-/*
-  SourSound.getUser($scope.url, '')
-  .then(
-    function( friends ) {
-      $scope.uservalue = friends;
-      console.log(friends);
-
-    }
-  );
-*/
-
 
   $scope.test = function() {
 
     url = $scope.user.name;
     console.log(url);
 
-    SourSound.getUser(url, '')
+    NGPagespeedInsights.getUser(url, '')
           .then(
                 function( friends ) {
                   $scope.uservalue = friends;
@@ -117,8 +106,8 @@ function($scope, $routeParams, SourSound, $location, project, $timeout) {
     };
 }]);
 
-Controllers.controller('CompetitorCtrl', ['$scope', '$routeParams', 'SourSound', '$location', 'project',
-function($scope, $routeParams, SourSound, $location, project) {
+Controllers.controller('CompetitorCtrl', ['$scope', '$routeParams', 'NGPagespeedInsights', '$location', 'project',
+function($scope, $routeParams, NGPagespeedInsights, $location, project) {
 
   $scope.project = { title: project.title };
 
@@ -215,7 +204,7 @@ function($scope, $routeParams, SourSound, $location, project) {
   var sitelength = $scope.sites.length;
 
   for (var i = 0; i < sitelength; i++) {
-    SourSound.getSiteInsights($scope.sites[i].site, '')
+    NGPagespeedInsights.getSiteInsights($scope.sites[i].site, '')
     .then(
       function( friends ) {
 
@@ -233,7 +222,7 @@ $scope.test = function() {
   url = $scope.user.name;
   console.log(url);
 
-  SourSound.getUser(url, '')
+  NGPagespeedInsights.getUser(url, '')
   .then(
     function( friends ) {
       $scope.uservalue = friends;

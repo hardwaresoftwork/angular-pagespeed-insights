@@ -11,9 +11,9 @@
 (function(){
 
 
-  var soursound = angular.module('SourSound', []);
+  var insights = angular.module('NGPagespeedInsights', []);
 
-  soursound.service("SourSound",
+  insights.service("NGPagespeedInsights",
   function( $http, $q) {
 
     var baseUrl = 'https://www.googleapis.com/pagespeedonline/v2/runPagespeed?url=';
