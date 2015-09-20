@@ -1,9 +1,9 @@
 /**
-* SOURINSIGHTS
+* Angular-Pagespeed-Insights
 * AngularJS Service for Google Page Insights
 *
-* Created by Erik Woitschig on 03/07/15.
-* http://os.bnz-power.com/sourinsights
+* Created by Erik Woitschig.
+* http://bnz-power.com
 * http://twitter.com/devbnz
 
 */
@@ -21,12 +21,10 @@
     var desktop   = '&strategy=desktop';
     var client_id = '&key=AIzaSyCYwYrQTfWWYknZTnwHNLF0IhyUz-grzUw';
 
-    // Return public API.
     return({
             getSiteInsights               : getSiteInsights,
             getDesktopSiteInsights        : getDesktopSiteInsights,
-            getMobileSiteInsights         : getMobileSiteInsights,
-            getYoutubeChannelStats        : getYoutubeChannelStats
+            getMobileSiteInsights         : getMobileSiteInsights
     });
 
 
@@ -72,28 +70,8 @@ function getMobileSiteInsights(url) {
 
 }
 
-function getYoutubeChannelStats(channel) {
-
-  var baseUrl = 'https://www.googleapis.com/youtube/v3/channels?part=snippet,statistics&forUsername=';
-  var chan = channel;
-  var apikey = '&key=AIzaSyCYwYrQTfWWYknZTnwHNLF0IhyUz-grzUw';
-
-  var request = $http({
-    method: "get",
-    cache: true,
-    url: baseUrl + chan + apikey
-  });
-
-  return( request.then( handleSuccess, handleError ) );
-
-}
-
 function handleError( response ) {
 
-  // The API response from the server should be returned in a
-  // nomralized format. However, if the request was not handled by the
-  // server (or what not handles properly - ex. server error), then we
-  // may have to normalize it on our end, as best we can.
   if (
     ! angular.isObject( response.data ) ||
     ! response.data.message
@@ -103,7 +81,6 @@ function handleError( response ) {
 
   }
 
-  // Otherwise, use expected error message.
   return( $q.reject( response.data.message ) );
 
 }

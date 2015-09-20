@@ -1,6 +1,6 @@
 var SourSoundApp = angular.module('SourSoundApp', [
 'ngRoute',
-'timelineControllers',
+'Controllers',
 'SourSound'
 ]);
 

@@ -1,30 +1,21 @@
 /**
-* Created by Erik Woitschig on 3/9/15.
+* Created by Erik Woitschig.
 * http://www.bnz-power.com
 */
 
 (function(){
 
-var timelineControllers = angular.module('timelineControllers', []);
+var Controllers = angular.module('Controllers', []);
 
-// example user
-timelineControllers.value('user', {
-  name: 'bnzlovesyou',
-  firstname: '',
-  url: 'http://soundcloud.com/bnzlovesyou',
-  id: 1672444,
-  trackid: 13158665,
-  playlistid: 751573,
-  groupid: 28743,
-  commentid: 211972068
+// project defaults
+Controllers.value('project', {
+  title: 'Angular-Pagespeed-Insights',
 });
 
-timelineControllers.controller('HomeCtrl', ['$scope', '$routeParams', 'SourSound', '$location', 'user',
-function($scope, $routeParams, SourSound, $location, user) {
+Controllers.controller('HomeCtrl', ['$scope', '$routeParams', 'SourSound', '$location', 'project',
+function($scope, $routeParams, SourSound, $location, project) {
 
-  $scope.project = {
-    title: 'SourInsights for Fonpit AG',
-  };
+  $scope.project = { title: project.title };
 
   $scope.milestones = [
         {     id    :   1,
@@ -32,19 +23,17 @@ function($scope, $routeParams, SourSound, $location, user) {
               date  : "2015-03-17"
         },
         {     id    :   2,
-          body  : "started to add onboarding process",
-          date  : "2015-05-20"
+              body  : "github release",
+              date  : "2015-09-20"
         }
         ];
 }
 ]);
 
-timelineControllers.controller('SitesCtrl', ['$scope', '$routeParams', 'SourSound', '$location', 'user', '$timeout',
-function($scope, $routeParams, SourSound, $location, user, $timeout) {
+Controllers.controller('SitesCtrl', ['$scope', '$routeParams', 'SourSound', '$location', 'project', '$timeout',
+function($scope, $routeParams, SourSound, $location, project, $timeout) {
 
-  $scope.project = {
-    title: 'SourInsights'
-  };
+  $scope.project = { title: project.title };
 
   $scope.results = [];
 
@@ -128,12 +117,10 @@ function($scope, $routeParams, SourSound, $location, user, $timeout) {
     };
 }]);
 
-timelineControllers.controller('CompetitorCtrl', ['$scope', '$routeParams', 'SourSound', '$location', 'user',
-function($scope, $routeParams, SourSound, $location, user) {
+Controllers.controller('CompetitorCtrl', ['$scope', '$routeParams', 'SourSound', '$location', 'project',
+function($scope, $routeParams, SourSound, $location, project) {
 
-  $scope.project = {
-    title: 'SourInsights'
-  };
+  $scope.project = { title: project.title };
 
   $scope.results = [];
 
