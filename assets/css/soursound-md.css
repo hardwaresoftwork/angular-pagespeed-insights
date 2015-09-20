@@ -1,0 +1,17 @@
+body {
+  font-size: 12px;
+}
+
+md-whiteframe {
+  background: #fff;
+  margin: 20px;
+  padding: 20px; }
+
+.md-tile-left{
+  width: 250px;
+}
+
+md-card {
+  min-height: 150px;
+  max-width: 320px;
+  }

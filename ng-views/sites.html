@@ -1,0 +1,25 @@
+<div>
+  <h1 class="page-header">{{project.title}}</h1>
+<ol class="breadcrumb">
+  <li><a ng-href="#/internalsites">Internal</a></li>
+  <li><a ng-href="#/competitors">Competitors</a></li>
+</ol>
+<div class="table-responsive">
+<table class="table table-striped">
+<thead>
+<tr>
+<th>SITE</th>
+<th>SPEED</th>
+<th>USABILITY</th>
+</tr>
+</thead>
+<tbody>
+<tr ng-repeat="result in results">
+<td><a ng-href="#/analysis/de">{{result.pageinsights.id}}</a></td>
+<td>{{result.pageinsights.ruleGroups.SPEED.score}}</td>
+<td>{{result.pageinsights.ruleGroups.USABILITY.score}}</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
